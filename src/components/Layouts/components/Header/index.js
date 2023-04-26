@@ -12,12 +12,12 @@ import {
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
-
+import { Link } from 'react-router-dom';
 import 'tippy.js/dist/tippy.css';
 
+import routesConfig from '../../../../config/routes';
 import styles from './Header.module.scss';
 import tiktokLogo from '../../../../assets/images/index';
-
 import Button from '../../../Button';
 import Menu from '../../../Popper/Menu';
 import { MessageIcon, NotificationIcon } from '../../../Icons';
@@ -91,9 +91,10 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
+                <Link to={routesConfig.home} className={cx('logo-link')}>
                     <img src={tiktokLogo.logo} alt="Tiktok" />
-                </div>
+                </Link>
+
                 <Search />
                 <div className={cx('action')}>
                     {currentUser ? (
@@ -116,7 +117,7 @@ function Header() {
                             <Button primary>Log in</Button>
                         </>
                     )}
-                    <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
+                    <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange} hideOnClick={false}>
                         {currentUser ? (
                             <Image
                                 src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/f90cc529e5bacc99b1459a81ab73ca87~c5_100x100.jpeg?x-expires=1682323200&x-signature=LgbEQQB1e23b3Sh7IuCRhCFiq%2FI%3D"
