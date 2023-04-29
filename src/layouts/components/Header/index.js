@@ -15,13 +15,13 @@ import Tippy from '@tippyjs/react';
 import { Link } from 'react-router-dom';
 import 'tippy.js/dist/tippy.css';
 
-import routesConfig from '../../../../config/routes';
+import config from '../../../config';
 import styles from './Header.module.scss';
-import tiktokLogo from '../../../../assets/images/index';
-import Button from '../../../Button';
-import Menu from '../../../Popper/Menu';
-import { MessageIcon, NotificationIcon } from '../../../Icons';
-import Image from '../../../Images';
+import tiktokLogo from '../../../assets/images/index';
+import Button from '../../../components/Button';
+import Menu from '../../../components/Popper/Menu';
+import { MessageIcon, NotificationIcon } from '../../../components/Icons';
+import Image from '../../../components/Images';
 import Search from '../Search';
 
 const MENU_ITEMS = [
@@ -91,7 +91,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx('logo-link')}>
+                <Link to={config.routes.home} className={cx('logo-link')}>
                     <img src={tiktokLogo.logo} alt="Tiktok" />
                 </Link>
 

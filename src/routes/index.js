@@ -1,6 +1,9 @@
-import HeaderOnly from '../components/Layouts/HeaderOnly/index.js';
+import config from '../config';
 
-import routesConfig from '../config/routes.js';
+// Layout
+import HeaderOnly from '../layouts/HeaderOnly/index.js';
+
+// Page
 import Home from '../pages/Home/index';
 import Following from '../pages/Following/index';
 import Profile from '../pages/Profile/index';
@@ -9,11 +12,11 @@ import Search from '../pages/Search/index.js';
 
 //Public Routes
 const publicRoutes = [
-    { path: routesConfig.home, component: Home },
-    { path: routesConfig.following, component: Following },
-    { path: routesConfig.profile, component: Profile },
-    { path: routesConfig.upload, component: Upload, layout: HeaderOnly },
-    { path: routesConfig.search, component: Search, layout: null },
+    { path: config.routes.home, component: Home },
+    { path: config.routes.following, component: Following },
+    { path: config.routes.profile, component: Profile },
+    { path: config.routes.upload, component: Upload, layout: HeaderOnly },
+    { path: config.routes.search, component: Search, layout: null },
 ];
 
 const privateRoutes = [];

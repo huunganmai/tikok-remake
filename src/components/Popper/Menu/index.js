@@ -10,7 +10,7 @@ import styles from './Menu.module.scss';
 const cx = classNames.bind(styles);
 const defaultFn = () => {};
 
-function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false }) {
+function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false, ...passProps }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -36,9 +36,10 @@ function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false 
 
     return (
         <Tippy
+            {...passProps}
             interactive="true"
             delay={[null, 700]}
-            hideOnClick={hideOnClick}
+            //hideOnClick={hideOnClick}
             offset={[10, 20]}
             placement="bottom-end"
             render={(attrs) => (
@@ -52,7 +53,7 @@ function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false 
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-body')}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}
