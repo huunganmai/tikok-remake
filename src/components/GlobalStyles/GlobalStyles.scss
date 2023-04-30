@@ -55,6 +55,11 @@ input,
     outline: none;
 }
 
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
 // Fonts emmbeded
 @font-face {
     font-family: ProximaNova;
